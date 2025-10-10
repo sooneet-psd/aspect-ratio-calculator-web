@@ -7,6 +7,16 @@
     --border: #e2e8f0;
 }
 
+:root {
+    --primary: #0ea5e9;
+    --primary-light: #38bdf8;
+    --background: #f1f5f9;
+    --surface: #ffffff;
+    --text: #0f172a;
+    --text-secondary: #64748b;
+    --border: #e2e8f0;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -21,9 +31,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
-    position: relative;
-    overflow-x: hidden;
+    padding: 1rem;
 }
 
 /* Geometric shapes background */
@@ -45,25 +53,27 @@ body::before {
 }
 
 .container {
-    max-width: 600px;
     width: 100%;
-    margin: 0 auto;
+    max-width: 640px;
     background: var(--surface);
-    padding: 2.5rem;
-    border-radius: 16px;
-    box-shadow: 0 4px 24px -8px rgba(0, 0, 0, 0.1);
-    border: 1px solid var(--border);
-    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 1.875rem;
     font-weight: 600;
     color: var(--text);
     text-align: center;
-    margin-bottom: 2.5rem;
-    letter-spacing: -0.5px;
-    position: relative;
+    margin-bottom: 2rem;
+    letter-spacing: -0.025em;
+}
+
+.calculator-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 h1::after {
@@ -106,15 +116,17 @@ h1::after {
     border-color: #1a73e8;
 }
 
+.input-section {
+    background: var(--background);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+}
+
 .input-group {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-    background: var(--background);
-    padding: 2rem;
-    border-radius: 12px;
-    border: 1px solid var(--border);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .input-field {
@@ -130,13 +142,14 @@ label {
 }
 
 input {
+    width: 100%;
     padding: 0.75rem 1rem;
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: 0.5rem;
     font-size: 1rem;
-    font-family: 'Inter', sans-serif;
-    transition: all 0.2s ease;
-    background-color: var(--surface);
+    background: var(--surface);
+    color: var(--text);
+    transition: all 0.15s ease;
 }
 
 input:hover {
@@ -213,11 +226,13 @@ button:hover {
 }
 
 .preview-section {
-    margin-top: 2rem;
+    background: var(--background);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
 }
 
 .preview-section h2 {
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--text);
     margin-bottom: 1rem;
@@ -225,16 +240,22 @@ button:hover {
 
 .preview-container {
     width: 100%;
-    height: 250px;
-    background: var(--background);
-    border-radius: 12px;
+    height: 200px;
+    background: var(--surface);
+    border-radius: 0.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     position: relative;
     border: 1px solid var(--border);
-    padding: 1.5rem;
+}
+
+#preview-box {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(14, 165, 233, 0.1);
 }
 
 #preview-box {
