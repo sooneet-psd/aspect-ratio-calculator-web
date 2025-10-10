@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aspect Ratio Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Aspect Ratio Calculator</h1>
+
+        <div class="calculator-section">
+            <h2>Calculate Aspect Ratio from Dimensions</h2>
+            <div class="input-group">
+                <div class="input-field">
+                    <label for="width">Width:</label>
+                    <input type="number" id="width" min="1" step="1">
+                </div>
+                <div class="input-field">
+                    <label for="height">Height:</label>
+                    <input type="number" id="height" min="1" step="1">
+                </div>
+                <button onclick="calculateRatio()">Calculate Ratio</button>
+            </div>
+            <div class="result">
+                <p>Aspect Ratio: <span id="ratioResult">-</span></p>
+            </div>
+        </div>
+
+        <div class="calculator-section">
+            <h2>Calculate Dimensions from Aspect Ratio</h2>
+            <div class="input-group">
+                <div class="input-field">
+                    <label for="ratioWidth">Ratio Width:</label>
+                    <input type="number" id="ratioWidth" min="1" step="1">
+                </div>
+                <div class="input-field">
+                    <label for="ratioHeight">Ratio Height:</label>
+                    <input type="number" id="ratioHeight" min="1" step="1">
+                </div>
+                <div class="input-field">
+                    <label for="targetWidth">Desired Width:</label>
+                    <input type="number" id="targetWidth" min="1" step="1">
+                </div>
+                <button onclick="calculateDimensions()">Calculate Dimensions</button>
+            </div>
+            <div class="result">
+                <p>Calculated Height: <span id="dimensionResult">-</span></p>
+            </div>
+        </div>
+
+        <div class="preview-section">
+            <h2>Preview</h2>
+            <div class="preview-container">
+                <div id="preview-box"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
