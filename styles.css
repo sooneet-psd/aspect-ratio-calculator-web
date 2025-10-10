@@ -8,9 +8,9 @@
 }
 
 :root {
-    --primary: #0ea5e9;
-    --primary-light: #38bdf8;
-    --background: #f1f5f9;
+    --primary: #00b894;
+    --primary-light: #00d1a7;
+    --background: #1a1f2e;
     --surface: #ffffff;
     --text: #0f172a;
     --text-secondary: #64748b;
@@ -32,6 +32,46 @@ body {
     justify-content: center;
     align-items: center;
     padding: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Geometric shapes in background */
+body::before,
+body::after {
+    content: '';
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+body::before {
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(0, 184, 148, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(0, 184, 148, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(0, 209, 167, 0.05) 0%, transparent 60%);
+    animation: pulse 15s ease-in-out infinite alternate;
+}
+
+body::after {
+    background: 
+        linear-gradient(45deg, transparent 48%, rgba(0, 184, 148, 0.05) 50%, transparent 52%) 0 0 / 20px 20px,
+        linear-gradient(-45deg, transparent 48%, rgba(0, 184, 148, 0.05) 50%, transparent 52%) 0 0 / 20px 20px;
+    opacity: 0.3;
+    animation: movePattern 30s linear infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+@keyframes movePattern {
+    0% { transform: translateX(-20px) translateY(-20px); }
+    100% { transform: translateX(20px) translateY(20px); }
 }
 
 /* Geometric shapes background */
@@ -55,10 +95,14 @@ body::before {
 .container {
     width: 100%;
     max-width: 640px;
-    background: var(--surface);
+    background: rgba(255, 255, 255, 0.98);
     padding: 2rem;
     border-radius: 1rem;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    box-shadow: 
+        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -2px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
 }
 
 h1 {
@@ -117,9 +161,11 @@ h1::after {
 }
 
 .input-section {
-    background: var(--background);
+    background: rgba(241, 245, 249, 0.5);
     padding: 1.5rem;
     border-radius: 0.75rem;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .input-group {
@@ -226,9 +272,11 @@ button:hover {
 }
 
 .preview-section {
-    background: var(--background);
+    background: rgba(241, 245, 249, 0.5);
     padding: 1.5rem;
     border-radius: 0.75rem;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .preview-section h2 {
@@ -255,7 +303,9 @@ button:hover {
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
     border-radius: 4px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 6px -1px rgba(14, 165, 233, 0.1);
+    box-shadow: 
+        0 4px 15px -3px rgba(0, 184, 148, 0.3),
+        0 0 0 1px rgba(0, 184, 148, 0.1);
 }
 
 #preview-box {
