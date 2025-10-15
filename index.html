@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
+        <div class="container">
         <h1>Aspect Ratio Calculator</h1>
         
         <div class="calculator-content">
@@ -18,10 +18,27 @@
                 <div class="input-group">
                     <div class="input-field">
                         <label for="width">Width</label>
+                            
+    <select id="options" name="options">
+    <option value="Pixel">px</option>
+    <option value="Feet">ft</option>
+    <option value="Meters">m</option>
+    <option value="Milimeters">mm</option>
+    <option value="Centimeters">cm</option>
+    <option value="Inches">in</option>
+
                         <input type="number" id="width" min="1" step="1" placeholder="Enter width">
                     </div>
                     <div class="input-field">
                         <label for="height">Height</label>
+                        
+    <select id="options" name="options">
+    <option value="Pixel">px</option>
+    <option value="Feet">ft</option>
+    <option value="Meters">m</option>
+    <option value="Milimeters">mm</option>
+    <option value="Centimeters">cm</option>
+    <option value="Inches">in</option>
                         <input type="number" id="height" min="1" step="1" placeholder="Enter height">
                     </div>
                 </div>
